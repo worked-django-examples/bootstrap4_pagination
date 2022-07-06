@@ -1,0 +1,54 @@
+{% load static %}
+{% load render_table from django_tables2 %}
+{% load bootstrap4 %}
+<!doctype html>
+<html>
+<head>
+    <title>django_tables2 with bootstrap 4 template example</title>
+    {% bootstrap_css %}
+</head>
+<body>
+    <div class="container">
+        {% block body %}
+
+     <P>The table below is taken from the "examples" folder of django-tables2 repository.
+        This is not typical usage, but the simplest thing to demonstrate.  The table is a
+         django-tables2.Table, not one of the specialized types of Tables.  There is no template
+        associated with a class. The only template that comes into play is named in the render() call,
+         and it is a regular old  html file in the django app's templates.  What we do get is
+         decent looking layout and a professional-looking color scheme.
+
+     <P>The setup required:
+        <DL>
+        <DT>install `django_bootstrap4` with pip or similar</DT>
+            <DD>Note: <b>not</b>
+                the pypi package `bootstrap4`. After you do that,
+        look in your site-packages.  It will have installed about 12 libraries, a lot of
+        beautiful soup.  But the immediate one we care about is `bootstrap4`.  It has a folder
+            (which is a python package) called templatetags</DD>
+        <DT>Add `bootstrap4` to settings.py Installed Apps.</DT>
+        <DL>Even though it is installed from package django_bootstrap4, the package is named
+        bootstrap4.  When your template says {% verbatim %}{% load bootstrap4 %}{% endverbatim %}, django will look in
+        that package (which will be in site-packages).</DL>
+        <DT>Sorting doesn't work without code</DT>
+        <DD>The {% verbatim %}{% render_table table %}{% endverbatim %} generates links back
+        to  its own url, appending a "sort=" argument.  But the django view would have to find
+        and use that for it to have an effect.  All it does here is cause the page to reload</DD>
+    </DL>
+        <div class="row">
+            {% if filter %}
+                <div class="col-sm-10">
+                    <form action="" method="get" class="form form-inline">
+                        {% bootstrap_form filter.form layout='inline' %}
+                        {% bootstrap_button 'filter' %}
+                    </form>
+                </div>
+            {% endif %}
+            <div class="col-sm-10">
+                {% render_table table %}
+            </div>
+        </div>
+        {% endblock %}
+    </div>
+</body>
+</html>
