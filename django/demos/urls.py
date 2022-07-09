@@ -16,16 +16,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-from . import views 
+from . import views
 
 urlpatterns = [
-    path('', views.index, name='css_index'),
-    path('no_explicit_style', views.simple_table_without_explicit_style,
-         name='simple_table_without_explicit_style'),
-    path('with_template_in_table_class',
-         views.no_template_in_table_class,
-         name='no_template_in_table_class'),
-    path('extends_built_in',
-         views.extends_built_in,
-         name='extends_built_in')
-]
+    path('', views.index, name='css_index')
+    ]

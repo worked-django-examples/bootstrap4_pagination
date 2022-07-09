@@ -63,6 +63,7 @@ ALLOWED_HOSTS = []
 
 
 INSTALLED_APPS = [
+    'demos.apps.DemosAppConfig',
     'countries.apps.CountriesAppConfig',
     'django_tables2',
     'bootstrap4',
