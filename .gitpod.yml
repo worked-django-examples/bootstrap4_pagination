@@ -11,12 +11,12 @@ tasks:
       cd ../etl
       python worldbank-population.py
       cd /workspace/bootstrap4_pagination/
-      chmod +x ../wait-for-it.sh
+      chmod +x ./wait-for-it.sh
     command: |
       source venv/bin/activate
       ./wait-for-it.sh localhost:5432 
       cd django
-      python django/manage.py runserver 0.0.0.0:8000
+      python manage.py runserver 0.0.0.0:8000
   
 ports:
   - port: 8000
