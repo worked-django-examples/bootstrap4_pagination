@@ -19,5 +19,11 @@ from django.urls import path, include
 from . import views
 
 urlpatterns = [
+    path('example_1_working_pagination',
+         views.example_1_working_pagination,
+         name='example_1_working_pagination' ),
+    path('example_1_broken_pagination',
+         views.example_1_broken_pagination,
+         name='example_1_broken_pagination'),
     path('', views.index, name='css_index')
     ]

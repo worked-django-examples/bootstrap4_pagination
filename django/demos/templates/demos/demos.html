@@ -1,11 +1,41 @@
+{% load static %}
+{% load render_table from django_tables2 %}
+{% load bootstrap4 %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+	<link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" rel="stylesheet">
+
+
     <title>Title</title>
 </head>
 <body>
-Apres moi les demos
+
+	<caption>Table 1</caption>
+	<table class="table">
+	<thead>
+	<tr>
+		<th>Left (pretty)</th>
+		<th>Right (unstyled)</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	<tr><td><P>Here are two web pages that differ only in whether or not the Table model has
+a template.  Both call render and specify a template, but the left one gets the stlying
+		applied to the pagination list and the right one doesn't.
+		<P>How does table 1 pick up styling from the Table class?</P>
+	</td>
+</tr>
+	<tr>
+		<td><a href="{% url 'example_1_working_pagination' %}">example_1_working_pagination</a></td>
+		<td><a href="{% url 'example_1_broken_pagination' %}">example_1_broken_pagination ("broken" meaning unstyled)</a></td>
+	</tr>
+	</tbody>
+</table>
+</P>
 
 
 </body>

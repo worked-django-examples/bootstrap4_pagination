@@ -10,14 +10,16 @@ tasks:
       python manage.py migrate
       cd ../etl
       python worldbank-population.py
+      cd /workspace/bootstrap4_pagination/
+      chmod +x ./wait-for-it.sh
     command: |
       source venv/bin/activate
-      cd  /workspace/tables2_base/django
-      python manage.py runserver
+      ./wait-for-it.sh localhost:5432 
+      cd django
+      python manage.py runserver 0.0.0.0:8000
   
 ports:
   - port: 8000
-    visibility: private
     onOpen: open-preview
 
   # PostgreSQL server

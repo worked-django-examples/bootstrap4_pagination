@@ -17,4 +17,3 @@ class Bootstrap4CountryCodesTable(t2.Table):
         model = Country
         attrs = {"class": "table table-hover"}
         template_name = "django_tables2/bootstrap4.html"
-
